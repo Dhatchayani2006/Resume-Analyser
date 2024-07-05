@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Analyzer</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap">
+</head>
+<body>
+<!-- Video Background -->
+<video autoplay muted loop id="backgroundVideo">
+    <source src="{% static 'video/background.mp4' %}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<!-- Content -->
+<div class="content">
+    <h1>Resume Analyzer</h1>
+    <form id="uploadForm" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="file-upload">
+            <input type="file" name="file" id="fileInput" required>
+            <label for="fileInput" class="upload-btn">+</label>
+            <div id="fileName"></div> <!-- Display file name here -->
+        </div>
+        <textarea name="user_prompt" id="userPrompt" placeholder="Enter your prompt"></textarea>
+        <button type="submit">Upload</button>
+    </form>
+    <div id="result"></div>
+</div>
+
+<script>
+    document.getElementById('uploadForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var formData = new FormData(this);
+
+        fetch('/api/upload/', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('result').innerText = data.generated_text;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+
+    // Display file name when selected
+    document.getElementById('fileInput').addEventListener('change', function() {
+        document.getElementById('fileName').innerText = this.files[0].name;
+    });
+</script>
+</body>
+</html>
+

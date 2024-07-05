@@ -1,0 +1,125 @@
+/* index.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Blue gradient background */
+}
+
+#backgroundVideo {
+    position: fixed;
+    z-index: -1; /* Ensure the video is behind the content */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the entire viewport */
+    opacity: 0.4; /* Add opacity for a subtle video background */
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Bring content in front of the video */
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+    padding: 40px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 4em; /* Adjust the font size for a more modern look */
+    font-family: 'Pacifico', cursive; /* Apply a more decorative font to the heading */
+    color: #1e3c72; /* Dark blue text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+    margin: 20px 0;
+    padding: 10px;
+}
+
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align form items */
+}
+
+#fileInput {
+    display: none; /* Hide the file input */
+}
+
+.upload-btn {
+    width: 60px; /* Set button width */
+    height: 60px; /* Set button height */
+    border-radius: 30px; /* Make the button circular */
+    background-color: #1e3c72; /* Set button background color to dark blue */
+    color: #fff; /* Set button text color */
+    font-size: 24px; /* Set button font size */
+    text-align: center; /* Center-align text inside button */
+    line-height: 60px; /* Center-align text vertically */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-right: 10px; /* Add margin to separate button from file name */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Style for hover effect */
+.upload-btn:hover {
+    background-color: #2a5298; /* Lighter blue color on hover */
+}
+
+#fileName {
+    color: #1e3c72; /* Set text color to dark blue */
+    margin-right: 10px; /* Add margin to separate file name from button */
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #1e3c72; /* Border color dark blue */
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    color: #1e3c72; /* Text color dark blue */
+    font-size: 1em; /* Font size */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+textarea:focus {
+    border-color: #2a5298; /* Border color on focus lighter blue */
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1e3c72; /* Button background color dark blue */
+    color: #fff;
+    font-size: 1.5em; /* Font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+button:hover {
+    background-color: #2a5298; /* Lighter blue color on hover */
+}
+
+#result {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border: 2px solid #1e3c72; /* Border color dark blue */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 300px; /* Max height for the result area */
+    overflow-y: auto; /* Enable vertical scrollbar when content exceeds the height */
+    color: #1e3c72; /* Text color dark blue */
+}
